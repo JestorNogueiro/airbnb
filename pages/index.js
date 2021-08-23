@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import SmallCard from "../components/Cards/SmallCard";
 import LiveCard from "../components/Cards/LiveCard";
 import LargeCard from "../components/Cards/LargeCard";
+import Footer from "../components/Footer";
 
 export default function Home({ smallCardData, livecardData }) {
   // console.log(exploreData);
@@ -44,6 +45,7 @@ export default function Home({ smallCardData, livecardData }) {
 
         <LargeCard />
       </main>
+      <Footer />
     </div>
   );
 }
