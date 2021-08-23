@@ -7,6 +7,7 @@ function Hero() {
         src="/images/hero.jpg"
         objectFit="cover"
         layout="fill"
+        loading="eager"
         // width={100}
         // height={100}
       />
