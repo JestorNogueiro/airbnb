@@ -4,7 +4,7 @@ function Hero() {
   return (
     <section className="relative h-[300px] sm:h-[400px] lg:h-[500px] 2xl:h-[700px] top-0 ">
       <Image
-        src="/images/hero.jpg"
+        src="/images/olympic.jpg"
         objectFit="cover"
         layout="fill"
         loading="eager"
