@@ -16,7 +16,7 @@ function Header() {
         </h3>
       </div>
       {/* search section */}
-      <div className="flex px-2  items-center md:border-[0.5px] shadow-md min-w-min border-black/70 rounded-full hover:scale-105 transition duration-200">
+      <div className="flex px-2  items-center md:border-[0.5px] shadow-md min-w-[150px] md:min-w-min border-black/70 rounded-full hover:scale-105 transition duration-200 mr-1">
         <input
           type="text"
           className=" outline-none flex-1 bg-transparent text-xs md:text-base ml-2"
@@ -27,7 +27,7 @@ function Header() {
         </p>
       </div>
 
-      <div className=" flex items-center mx-2 justify-end">
+      <div className=" flex items-center md:mx-2 justify-end">
         <p className="hidden rounded-full md:inline ml-6 hover:shadow-md hover:bg-white/70 px-4 cursor-pointer">
           Become a host
         </p>
