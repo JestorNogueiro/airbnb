@@ -10,7 +10,9 @@ import {
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
-function Header() {
+import { useRouter } from "next/router";
+function Header({ placeholder }) {
+  const router = useRouter();
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -24,11 +26,24 @@ function Header() {
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
   };
-
+  const search = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        guest: guest,
+      },
+    });
+  };
   return (
     <header className="h-[80px]  sticky bg-white shadow-md py-4 z-50 top-0 md:px-10 px-[8.5px] grid grid-cols-3">
       {/* logo */}
-      <div className="relative flex items-center cursor-pointer ">
+      <div
+        className="relative flex items-center cursor-pointer "
+        onClick={() => router.push("/")}
+      >
         <Image
           src="/images/airbnb-l.png"
           width={45}
@@ -41,13 +56,13 @@ function Header() {
       </div>
 
       {/* search section */}
-      <div className="flex px-2  items-center md:border-[0.5px] shadow-md min-w-[150px] md:min-w-min border-black/70 rounded-full hover:scale-105 transition duration-200 mr-1">
+      <div className="flex px-2  items-center md:border-[0.5px] shadow-md min-w-[200px] md:min-w-min border-black/70 rounded-full hover:scale-105 transition duration-200 mr-1">
         <input
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           type="text"
           className=" outline-none flex-1 bg-transparent text-xs md:text-base ml-2"
-          placeholder="Start your search"
+          placeholder={placeholder || "Start your search"}
         />
         <p className="hidden ml-2 bg-red-500 p-2 rounded-full cursor-pointer md:inline-flex">
           <BiSearch className="text-white" />
@@ -94,7 +109,10 @@ function Header() {
             >
               Cancle
             </button>
-            <button className="flex-grow text-red-400 bg-white px-5 py3 mx-3 transition transform ease-in  hover:font-semibold  rounded-xl hover:scale-90 duration-100">
+            <button
+              className="flex-grow text-red-400 bg-white px-5 py3 mx-3 transition transform ease-in  hover:font-semibold  rounded-xl hover:scale-90 duration-100"
+              onClick={search}
+            >
               Search
             </button>
           </div>
