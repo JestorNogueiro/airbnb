@@ -1,8 +1,10 @@
 import Header from "../components/Header";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
+import SearchItem from "../components/SearchItem";
 
-function Search() {
+function Search({ searchResult }) {
+  console.log(searchResult);
   const router = useRouter();
 
   const { location, startDate, endDate, guest } = router.query;
@@ -30,6 +32,21 @@ function Search() {
             <p className="button">Instant Book</p>
             <p className="button">More filter</p>
           </div>
+
+          <section className="flex flex-col">
+            {searchResult?.map((item) => (
+              <SearchItem
+                key={item.title}
+                img={item.img}
+                title={item.title}
+                location={item.location}
+                description={item.description}
+                star={item.star}
+                price={item.price}
+                total={item.total}
+              />
+            ))}
+          </section>
         </section>
       </main>
     </div>
@@ -37,3 +54,15 @@ function Search() {
 }
 
 export default Search;
+
+export async function getServerSideProps() {
+  const searchResult = await fetch("https://jsonkeeper.com/b/5NPS").then(
+    (res) => res.json()
+  );
+
+  return {
+    props: {
+      searchResult,
+    },
+  };
+}
