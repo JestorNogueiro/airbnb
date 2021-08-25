@@ -31,7 +31,7 @@ function Map({ searchResult }) {
             offsetLeft={-20}
             offsetTop={-10}
           >
-            <p>📌📍</p>
+            <p>📍</p>
           </Marker>
         </div>
       ))}
