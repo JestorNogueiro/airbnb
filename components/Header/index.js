@@ -56,12 +56,12 @@ function Header({ placeholder }) {
       </div>
 
       {/* search section */}
-      <div className="flex px-2  items-center md:border-[0.5px] shadow-md min-w-[200px] md:min-w-min border-black/70 rounded-full hover:scale-105 transition duration-200 mr-1">
+      <div className="flex px-2  items-center md:border-[0.5px] shadow-md min-w-[160px] md:min-w-min border-black/70 rounded-full hover:scale-105 transition duration-200 mr-2">
         <input
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           type="text"
-          className=" outline-none flex-1 bg-transparent text-xs md:text-base ml-2"
+          className=" outline-none flex-1 bg-transparent text-xs md:text-base ml-[6px] pr-3"
           placeholder={placeholder || "Start your search"}
         />
         <p className="hidden ml-2 bg-red-500 p-2 rounded-full cursor-pointer md:inline-flex">
