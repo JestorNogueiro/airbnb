@@ -2,9 +2,10 @@ import Header from "../components/Header";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
 import SearchItem from "../components/SearchItem";
+import Map from "../components/Map";
 
 function Search({ searchResult }) {
-  console.log(searchResult);
+  // console.log(searchResult);
   const router = useRouter();
 
   const { location, startDate, endDate, guest } = router.query;
@@ -15,8 +16,8 @@ function Search({ searchResult }) {
   return (
     <div>
       <Header placeholder={`${location} | ${range} | ${guest} guests`} />
-      <main className="flex">
-        <section className="flex-grow pt-14 px-6 gap-2">
+      <main className="flex flex-col lg:flex-row">
+        <section className="flex-grow pt-14 px-3 md:px-6 gap-2">
           <p className="text-xs flex">
             300+ Stays - <p className="font-bold"> {range}</p> - for (
             <p className="font-bold"> {guest} </p> ) - no of guests
@@ -47,6 +48,10 @@ function Search({ searchResult }) {
               />
             ))}
           </section>
+        </section>
+
+        <section className="items-center w-[300px] p-2 lg:inline lg:min-w-[300px] xl:min-w-[600px]">
+          <Map searchResult={searchResult} />
         </section>
       </main>
     </div>
