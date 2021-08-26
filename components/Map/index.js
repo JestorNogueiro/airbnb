@@ -3,6 +3,8 @@ import { useState } from "react";
 import getCenter from "geolib/es/getCenter";
 
 function Map({ searchResult }) {
+  const [selectedLocation, setSelectedLocation] = useState({});
+
   const coordinates = searchResult.map((result) => ({
     longitude: result.long,
     latitude: result.lat,
@@ -31,8 +33,27 @@ function Map({ searchResult }) {
             offsetLeft={-20}
             offsetTop={-10}
           >
-            <p>📍</p>
+            <p
+              onClick={() => setSelectedLocation(result)}
+              className="animate-bounce cursor-pointer text-2xl"
+            >
+              📍
+            </p>
           </Marker>
+          {/* popup */}
+          {selectedLocation.long === result.long ? (
+            <Popup
+              onClose={() => setSelectedLocation({})}
+              closeOnClick={true}
+              latitude={result.lat}
+              latitude={result.lat}
+              longitude={result.long}
+            >
+              {result.title}
+            </Popup>
+          ) : (
+            ""
+          )}
         </div>
       ))}
     </ReactMapGL>
