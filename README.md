@@ -1,5 +1,6 @@
 This Airbnb clone (UI Development) </br>
 It Is Responsive on mobile, and also in=mplemented the map on the desktop mode So check it out</br>
+you can select the date </br>
 Tech Used:</br>
 Next.js, tailwindcss
 
@@ -8,3 +9,5 @@ ScreenShots:</br>
 
 </br>
 ![image](https://user-images.githubusercontent.com/79025576/133899064-c17db5aa-33e0-4266-b7a2-6f41e58aa4f8.png)
+
+![Uploading image.png…]()
