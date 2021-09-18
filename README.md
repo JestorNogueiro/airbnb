@@ -1,5 +1,5 @@
 This Airbnb clone (UI Development) </br>
-
+It Is Responsive on mobile, and also in=mplemented the map on the desktop mode So check it out</br>
 Tech Used:</br>
 Next.js, tailwindcss
 
